@@ -4,12 +4,11 @@ pub fn add(left: u64, right: u64) -> u64 {
     left + right
 }
 
-use std::{thread::{self, sleep, JoinHandle}, time::Duration};
-
 #[cfg(test)]
 mod tests {
     use std::sync::Arc;
     use xthreadstore_impl::{XThreadStore, new_arc_singleton};
+    use std::{thread::{self, sleep, JoinHandle}, time::Duration};
     use super::*;
 
     #[test]
@@ -20,7 +19,7 @@ mod tests {
 
     #[test]
     fn test_example_atomicity() {
-        let x_thread_store_ptr = new_arc_singleton();;
+        let x_thread_store_ptr = new_arc_singleton();
         let mut threads: Vec<JoinHandle<()>> = Vec::new();
         // create a vector of values that we expect each thread to have
         let vals: Vec<i32> = vec![1, 2, 3, 4, 5];
